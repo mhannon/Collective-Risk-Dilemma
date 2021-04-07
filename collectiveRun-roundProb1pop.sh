@@ -32,6 +32,7 @@ do
 for prob0 in 1 #0 for 1 4 & 5, 1 for 0 2 & 3
 do
 for gamma0 in 0.01 0.1 0.5 1 2 3 4 5 6 7 8 9 10 20 50 100 #lambda in the paper
+do
 for sigma1 in 0.15 #gaussian for threshold mutation
 do
 for sigma2 in -1 #gaussian for contributions mutation, -1 mean uniform mutation and other number implies the sigma for gausian
@@ -42,7 +43,7 @@ do
 generatioMax=100000 #00#number of steps until the end of one simualtion
 
 for num in 1 #{1..10} # iterations
-	do
+do
 fname=$gamesize"-"$popsize0"-"$prob0"-"$sel"-"$gS0"-"$rN"-"$maxPay0"-"$enom0"-"$lostenom0"-"$target"-"$probFnOPT0"-"$generatioMax"-"$gamma0"-"$sigma1"-"$sigma2"-"$mutype0"-"$mutype1"-"$randRound"-"$initCont
 			subF="subM-"$fname
 
@@ -50,7 +51,10 @@ fname=$gamesize"-"$popsize0"-"$prob0"-"$sel"-"$gS0"-"$rN"-"$maxPay0"-"$enom0"-"$
 STR=$cpp" "$opt" 0 "$popsize0" "$sel" "$gamesize" "$generatioMax" "$mutype0" "$gS0" "$rN" "$maxPay0" "$enom0" "$lostenom0" "$target" "$prob0" "$probFnOPT0" "$gamma0" "$sigma1" "$sigma2" "$randRound" "$initCont" "$num #\${PBS_ARRAYID}
 
 echo $STR #call program with the parameters, must change this to mach your own termnial system
+
 #./$STR  #to run the program you need to compile the cpp code and then allow this line to run
+
+
 #sname=$subF.sh
 #sed "s/dummy1/$STR/g;s/dum2/CR-round/g"  $dumdum > $sname
 #chmod a+x $sname
