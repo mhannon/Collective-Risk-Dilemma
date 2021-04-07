@@ -2,7 +2,7 @@ cpp="round.out"
 
 opt=13 #for the types of outputfiles 1=total ave, 2 round contrbutions per generation 12 or 21 for both...3 is special for old game!! dont use for sims it uses the same total files as new game
 
-dumdum="dum.pbs"
+#dumdum="dum.pbs"
 
 for initCont in -1 #0 1
 do #-1 means rand initial state and any other number a homogenous pop so if you pick 0 then all population will contribute 0, if youi pick 2 they will contribute 2...mutations will change the initial state
@@ -50,7 +50,7 @@ fname=$gamesize"-"$popsize0"-"$prob0"-"$sel"-"$gS0"-"$rN"-"$maxPay0"-"$enom0"-"$
 STR=$cpp" "$opt" 0 "$popsize0" "$sel" "$gamesize" "$generatioMax" "$mutype0" "$gS0" "$rN" "$maxPay0" "$enom0" "$lostenom0" "$target" "$prob0" "$probFnOPT0" "$gamma0" "$sigma1" "$sigma2" "$randRound" "$initCont" "$num #\${PBS_ARRAYID}
 
 echo $STR #call program with the parameters, must change this to mach your own termnial system
-#./$STR
+#./$STR  #to run the program you need to compile the cpp code and then allow this line to run
 #sname=$subF.sh
 #sed "s/dummy1/$STR/g;s/dum2/CR-round/g"  $dumdum > $sname
 #chmod a+x $sname
