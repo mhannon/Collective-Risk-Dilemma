@@ -1,6 +1,6 @@
 cpp="round.out"
 
-opt=13 #for the types of outputfiles 1=total ave, 2 round contrbutions per generation 12 or 21 for both...3 is special for old game!! dont use for sims it uses the same total files as new game
+opt=12 #for the types of outputfiles 1=total ave, 2 round contrbutions per generation 12 or 21 for both...3 is special for old game!! dont use for sims it uses the same total files as new game
 
 #dumdum="dum.pbs"
 
@@ -40,7 +40,7 @@ do
 for target in 1 #this is 1 except for fermi or step curve opt 0 2 and 3
 do 	
 
-generatioMax=100000 #00#number of steps until the end of one simualtion
+generatioMax=100 #00#number of steps until the end of one simualtion
 
 for num in 1 #{1..10} # iterations
 do
@@ -52,7 +52,7 @@ STR=$cpp" "$opt" 0 "$popsize0" "$sel" "$gamesize" "$generatioMax" "$mutype0" "$g
 
 echo $STR #call program with the parameters, must change this to mach your own termnial system
 
-#./$STR  #to run the program you need to compile the cpp code and then allow this line to run
+./$STR  #to run the program you need to compile the cpp code and then allow this line to run
 
 
 #sname=$subF.sh
