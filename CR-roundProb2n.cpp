@@ -92,13 +92,12 @@ int main(int argc, char* argv[])
 	string loca ("");//location of file
 	if(clusterInfo==1)
 	{
-//
-         loca="/home/abouchakra/collective/CRP-roundProb/";
-    
+        loca="/home/abouchakra/collective/CRP-roundProb/";
 	}
-    else{
+    else {
         loca="/Users/abouchakra/Documents/MPI/CollectiveRisk6-CR-new-everyroundprob/CRP-roundProb-program/data/";
     }
+
 	string nameF0 ("");
 	string nameF1 ("");
 	string nameF2 ("");

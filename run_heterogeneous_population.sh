@@ -10,7 +10,7 @@ for popsize0 in 100
 do
 for sel in 1 #selection intensity
 do
-for gamesize in 1000 #00 #how many games played in one generation
+for gamesize in 10 #00 #how many games played in one generation # 1000
 do
 for mutype0 in 0.03 #0.001 0.01 0.1 0.03 #mutation rate
 do
@@ -47,7 +47,7 @@ do
 for target in 2 3 #this is 1 except for fermi or step curve opt 0 2 and 3
 do 	
 
-generatioMax=100000 #00#number of steps until the end of one simualtion
+generatioMax=100 #00#number of steps until the end of one simualtion #100000
 
 for num in 1 #{1..10} # iterations
 	do
@@ -58,10 +58,10 @@ fname=$gamesize"-"$popsize0"-"$prob0"-"$sel"-"$gS0"-"$rN"-"$maxPay0"-"$maxPay1"-
 STR=$cpp" "$opt" 1 "$popsize0" "$sel" "$gamesize" "$generatioMax" "$mutype0" "$gS0" "$rN" "$maxPay0" "$maxPay1" "$enom0" "$enom1" "$lostenom0" "$lostenom1" "$target" "$prob0" "$probFnOPT0" "$gamma0" "$sigma1" "$sigma2" "$randRound" "$initCont" "$num #\${PBS_ARRAYID}
 
 #echo $STR #call program with the parameters, must change this to mach your own termnial system
-#./$STR
-sname=$subF.sh
-sed "s/dummy1/$STR/g;s/dum2/CR-round/g"  $dumdum > $sname
-chmod a+x $sname
+./$STR
+#sname=$subF.sh
+#sed "s/dummy1/$STR/g;s/dum2/CR-round/g"  $dumdum > $sname
+#chmod a+x $sname
 		
 done
 done
