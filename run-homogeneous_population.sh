@@ -16,14 +16,14 @@ for mutype0 in 0.03 #0.001 0.01 0.1 0.03 #mutation rate
 do
 for gS0 in 2 #5 #10 #4 6 #10 20 #2 #4 #6 8 #group size
 do
-for rN in 1 2 4 #Round number
+for rN in 1 # 2 4 #Round number
 do
 for randRound in 0 #-2 0 1 $rN # 0 -1 -2 3 4 #which round the risk will occur, 0 means all -1 non -2 one random, any Integer 1-rN means in that round
 do
 let endowMax=$rN\*\2;
-for enom0 in 1 #endowment of each player at the begining of the game this is W in the paper
+for enom0 in 1 #endowment of each player at the beginning of the game this is W in the paper
 do
-for lostenom0 in 1 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
+for lostenom0 in 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1 # 1
 do
 for maxPay0 in $enom0 #$enom0 #max amount one can pay per round
 do
@@ -31,7 +31,7 @@ for probFnOPT0 in 0 #0=step curve 1=exp 1 2= fermi divided, 3 fermi function 4= 
 do
 for prob0 in 1 #0 for 1 4 & 5, 1 for 0 2 & 3
 do
-for gamma0 in 0.01 0.1 0.5 1 2 3 4 5 6 7 8 9 10 20 50 100 #lambda in the paper
+for gamma0 in 10 # 0.01 0.1 0.5 1 2 3 4 5 6 7 8 9 10 20 50 100 #lambda in the paper
 do
 for sigma1 in 0.15 #gaussian for threshold mutation
 do
@@ -40,7 +40,7 @@ do
 for target in 1 #this is 1 except for fermi or step curve opt 0 2 and 3
 do 	
 
-generatioMax=100 #00#number of steps until the end of one simualtion
+generatioMax=100 #00#number of steps until the end of one simualtion # 100000
 
 for num in 1 #{1..10} # iterations
 do
