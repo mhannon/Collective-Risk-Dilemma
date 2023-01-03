@@ -10,24 +10,24 @@ for popsize0 in 100
 do
 for sel in 1 #selection intensity
 do
-for gamesize in 10 #00 #how many games played in one generation # 1000
+for gamesize in 1000 #00 #how many games played in one generation
 do
 for mutype0 in 0.03 #0.001 0.01 0.1 0.03 #mutation rate
 do
 for gS0 in 1 #5 #10 #4 6 #10 20 #2 #4 #6 8 #group size
 do
-for rN in 1 4 #Round number
+for rN in 4 #Round number
 do
-for randRound in -2 2 0 1 $rN # 0 -1 -2 3 4 #which round the risk will occur, 0 means all -1 non -2 one random, any Integer 1-rN means in that round
+for randRound in 0 # 0 -1 -2 3 4 #which round the risk will occur, 0 means all -1 non -2 one random, any Integer 1-rN means in that round
 do
 let endowMax=$rN\*\2;
 for enom0 in 1 #endowment of each player at the begining of the game this is W in the paper
 do
 for enom1 in 4 #endowment of each player at the begining of the game this is W in the paper
 do
-for lostenom0 in 1 0.5 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
+for lostenom0 in 0.5 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
 do
-for lostenom1 in 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
+for lostenom1 in 0.3 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
 do
 for maxPay0 in $enom0 #$enom0 #max amount one can pay per round
 do
@@ -44,17 +44,17 @@ do
 for sigma2 in -1 #gaussian for contributions mutation, -1 mean uniform mutation and other number implies the sigma for gausian
 do
 #let tD1=$enom0\+$enom2;
-for target in 2 3 #this is 1 except for fermi or step curve opt 0 2 and 3
-do 	
+for target in 2 #this is 1 except for fermi or step curve opt 0 2 and 3 # 2 3 originally
+do
 
-generatioMax=100 #00#number of steps until the end of one simualtion #100000
+generatioMax=1000 #00#number of steps until the end of one simualtion #100000
 
 for num in 1 #{1..10} # iterations
 	do
-fname=$gamesize"-"$popsize0"-"$prob0"-"$sel"-"$gS0"-"$rN"-"$maxPay0"-"$maxPay1"-"$enom0"-"$enom1"-"$lostenom0"-"$lostenom1"-"$target"-"$probFnOPT0"-"$generatioMax"-"$gamma0"-"$sigma1"-"$sigma2"-"$mutype0"-"$mutype1"-"$randRound"-"$initCont
+fname="results/momentOfContribution/allRounds/"$gamesize"-"$popsize0"-"$prob0"-"$sel"-"$gS0"-"$rN"-"$maxPay0"-"$maxPay1"-"$enom0"-"$enom1"-"$lostenom0"-"$lostenom1"-"$target"-"$probFnOPT0"-"$generatioMax"-"$gamma0"-"$sigma1"-"$sigma2"-"$mutype0"-"$mutype1"-"$randRound"-"$initCont
 			subF="subM-"$fname
 
-		
+
 STR=$cpp" "$opt" 1 "$popsize0" "$sel" "$gamesize" "$generatioMax" "$mutype0" "$gS0" "$rN" "$maxPay0" "$maxPay1" "$enom0" "$enom1" "$lostenom0" "$lostenom1" "$target" "$prob0" "$probFnOPT0" "$gamma0" "$sigma1" "$sigma2" "$randRound" "$initCont" "$num #\${PBS_ARRAYID}
 
 #echo $STR #call program with the parameters, must change this to mach your own termnial system
@@ -62,7 +62,7 @@ STR=$cpp" "$opt" 1 "$popsize0" "$sel" "$gamesize" "$generatioMax" "$mutype0" "$g
 #sname=$subF.sh
 #sed "s/dummy1/$STR/g;s/dum2/CR-round/g"  $dumdum > $sname
 #chmod a+x $sname
-		
+
 done
 done
 done
