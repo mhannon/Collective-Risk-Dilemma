@@ -18,16 +18,16 @@ for gS0 in 1 #5 #10 #4 6 #10 20 #2 #4 #6 8 #group size
 do
 for rN in 4 #Round number
 do
-for randRound in -2 # 0 -1 -2 3 4 #which round the risk will occur, 0 means all -1 non -2 one random, any Integer 1-rN means in that round
+for randRound in $rN # 0 -1 -2 3 4 #which round the risk will occur, 0 means all -1 non -2 one random, any Integer 1-rN means in that round
 do
 let endowMax=$rN\*\2;
 for enom0 in 1 #endowment of each player at the begining of the game this is W in the paper
 do
 for enom1 in 4 #endowment of each player at the begining of the game this is W in the paper
 do
-for lostenom0 in 0.8 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
+for lostenom0 in 0.5 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
 do
-for lostenom1 in 0.5 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
+for lostenom1 in 0.3 # this is alpha in the paper #part of the endowment lost with each risk round between 0-1
 do
 for maxPay0 in $enom0 #$enom0 #max amount one can pay per round
 do
